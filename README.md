@@ -1,2 +1,3 @@
-# clipass
-CLI
+# Clipass
+
+CLI password management
