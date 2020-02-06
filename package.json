@@ -1,10 +1,11 @@
 {
-    "name": "Clipass-JS",
-    "version": "0.1.0",
+    "name": "clipass-js",
+    "version": "0.1.3",
     "description": "CLI Password Management",
     "main": "index.js",
     "bin": {
-        "clipass": "index.js"
+        "clipass": "index.js",
+        "pas": "index.js"
     },
     "scripts": {
         "test": "echo \"exit 0\"; exit 0;"
