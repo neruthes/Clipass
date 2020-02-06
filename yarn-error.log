@@ -1,0 +1,61 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarn publish
+
+PATH: 
+  /usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/MacGPG2/bin:/Library/TeX/texbin:/usr/local/bin:/usr/local/go/bin
+
+Yarn version: 
+  1.5.1
+
+Node version: 
+  10.16.0
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  {
+      "name": "Clipass",
+      "version": "0.1.0",
+      "description": "CLI Password Management",
+      "main": "index.js",
+      "bin": {
+          "clipass": "index.js"
+      },
+      "scripts": {
+          "test": "echo \"exit 0\"; exit 0;"
+      },
+      "repository": {
+          "type": "git",
+          "url": "git+https://neruthes@github.com/neruthes/Clipass.git"
+      },
+      "keywords": [
+          "cli",
+          "password"
+      ],
+      "author": "Neruthes <i@neruthes.xyz>",
+      "license": "AGPL-3.0",
+      "bugs": {
+          "url": "https://github.com/neruthes/Clipass/issues"
+      },
+      "homepage": "https://github.com/neruthes/Clipass#readme"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: https://registry.yarnpkg.com/Clipass: "Clipass" is invalid for new packages
+      at Request.params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:65019:18)
+      at Request.self.callback (/usr/local/lib/node_modules/yarn/lib/cli.js:132430:22)
+      at Request.emit (events.js:198:13)
+      at Request.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:133413:10)
+      at Request.emit (events.js:198:13)
+      at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:133333:12)
+      at Object.onceWrapper (events.js:286:20)
+      at IncomingMessage.emit (events.js:203:15)
+      at endReadableNT (_stream_readable.js:1129:12)
+      at process._tickCallback (internal/process/next_tick.js:63:19)

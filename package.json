@@ -1,0 +1,26 @@
+{
+    "name": "Clipass-JS",
+    "version": "0.1.0",
+    "description": "CLI Password Management",
+    "main": "index.js",
+    "bin": {
+        "clipass": "index.js"
+    },
+    "scripts": {
+        "test": "echo \"exit 0\"; exit 0;"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://neruthes@github.com/neruthes/Clipass.git"
+    },
+    "keywords": [
+        "cli",
+        "password"
+    ],
+    "author": "Neruthes <i@neruthes.xyz>",
+    "license": "AGPL-3.0",
+    "bugs": {
+        "url": "https://github.com/neruthes/Clipass/issues"
+    },
+    "homepage": "https://github.com/neruthes/Clipass#readme"
+}
