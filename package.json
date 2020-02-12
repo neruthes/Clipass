@@ -1,6 +1,6 @@
 {
     "name": "clipass-js",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "description": "CLI Password Management",
     "main": "index.js",
     "bin": {
