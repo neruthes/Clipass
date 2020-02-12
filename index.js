@@ -120,7 +120,9 @@ Your data is stored at: ~/.xyz.neruthes.clipass.v1
             console.error('[ERROR 300] ' + query.msg);
         } else { // Good
             console.log('[Notice] The password has been copied into clipboard.');
-            exec(`echo "${query.res}" | pbcopy`);
+            var tmpFileName = '.xyz.neruthes.clipass.v1-e8f0f448-2e69-4296-932c-b1b8652287f0.txt';
+            fs.writeFileSync(tmpFileName, query.res);
+            exec(`cat ${tmpFileName} | pbcopy; rm ${tmpFileName};`);
         };
     },
     'print': function (args) {
