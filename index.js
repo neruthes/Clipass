@@ -133,7 +133,6 @@ Your data is stored at: ~/.xyz.neruthes.clipass.v1
             console.error('[ERROR 300] ' + query.msg);
         } else { // Good
             console.log(query.res);
-            // exec(`echo "${query.res}" | pbcopy`);
         };
     },
     'ls-password': function (args) {
