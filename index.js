@@ -106,8 +106,13 @@ const commandHandlers = {
     'help': function (args) {
         subcommandEntryDebugInfo(args);
         console.log(
-`${c.green}Clipass${c.end} - Help Document
-=====================================================================
+`
+${c.green}Clipass${c.end} (v0.1.7) is a Free Software, as published under <GNU AGPL 3.0> license.
+
+The source code is available at <https://github.com/neruthes/Clipass>.
+Copyright (c) 2019-2020 Neruthes <https://neruthes.xyz/> <i@neruthes.xyz>.
+
+${(new Array(74)).fill('#').join('')}
 
 Usages:
     ${c.green}clipass set {entry name} {password}     ${c.end}: Set a password
