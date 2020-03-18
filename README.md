@@ -48,7 +48,7 @@ See directory: `~/.xyz.neruthes.clipass.v1`.
 
 ## Copyright
 
-Copyright (C) 2019-2020 Neruthes <[i@neruthes.xyz](i@neruthes.xyz)> <[0x5200DF38](https://pgp.to/#0xCB0ABC7756440D12915E3F25AFB3373F5200DF38)>
+Copyright (C) 2019-2020 Neruthes <[neruthes.xyz](https://neruthes.xyz)> <[0x5200DF38](https://pgp.to/#0xCB0ABC7756440D12915E3F25AFB3373F5200DF38)>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published
