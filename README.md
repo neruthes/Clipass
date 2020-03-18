@@ -5,7 +5,7 @@ CLI password management.
 ## Installation
 
 ```
-$ npm install -g clipass-js
+$ npm install -g clipass
 ```
 
 ## Usages
