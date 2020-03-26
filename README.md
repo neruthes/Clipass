@@ -15,21 +15,21 @@ The standard command entry is `clipass`. Alias `pas` is available.
 ### Set Password
 
 ```
-$ clipass set github:neruthes 123456
-$ clipass s github:neruthes 123456
+$ clipass set github.neruthes 123456
+$ clipass s github.neruthes 123456
 ```
 
 ### Copy Password
 
 ```
-$ clipass copy github:neruthes
-$ clipass c github:neruthes
+$ clipass copy github.neruthes
+$ clipass c github.neruthes
 ```
 
 ### Delete Password
 
 ```
-$ clipass rm github:neruthes
+$ clipass rm github.neruthes
 ```
 
 ### List Password Entries
@@ -45,6 +45,8 @@ See [GitHub Wiki](https://github.com/neruthes/Clipass/wiki/Clipass-User-Manual).
 ## Data Management
 
 See directory: `~/.xyz.neruthes.clipass.v1`.
+
+You may sync data via Git.
 
 ## Copyright
 
