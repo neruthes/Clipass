@@ -1,6 +1,6 @@
 {
     "name": "clipass",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "description": "CLI Password Management",
     "main": "index.js",
     "bin": {
@@ -25,5 +25,8 @@
     "bugs": {
         "url": "https://github.com/neruthes/Clipass/issues"
     },
-    "homepage": "https://github.com/neruthes/Clipass#readme"
+    "homepage": "https://github.com/neruthes/Clipass#readme",
+    "dependencies": {
+        "crypto-js": "*"
+    }
 }
