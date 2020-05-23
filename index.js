@@ -31,7 +31,7 @@ var $args = process.argv.slice(2);
 let globalAesKey = '';
 (function () {
     if (fs.existsSync(homedir+`/.xyz.neruthes.clipass.v2/globalAesKey`)) {
-        var tmpglobalAesKey = fs.readFileSync(homedir+`/.xyz.neruthes.clipass.v2/globalAesKey`).toString();
+        var tmpglobalAesKey = fs.readFileSync(homedir+`/.xyz.neruthes.clipass.v2/globalAesKey`).toString().trim();
         if (tmpglobalAesKey.length > 5) {
             globalAesKey = tmpglobalAesKey;
             return 0;
