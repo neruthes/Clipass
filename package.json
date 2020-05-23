@@ -25,5 +25,8 @@
     "bugs": {
         "url": "https://github.com/neruthes/Clipass/issues"
     },
-    "homepage": "https://github.com/neruthes/Clipass#readme"
+    "homepage": "https://github.com/neruthes/Clipass#readme",
+    "dependencies": {
+        "crypto-js": "*"
+    }
 }
