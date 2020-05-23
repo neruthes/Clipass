@@ -336,6 +336,14 @@ Shortcut:
 // --------------------
     'set-sudo': `See "clipass man set"`,
 // --------------------
+    'export': `
+Usage: Export all passwords (bare, unprotected) (uninplemented yet)
+$ ${c.green}clipass export {filename}${c.end}`,
+// --------------------
+    'import': `
+Usage: Import several passwords (uninplemented yet)
+$ ${c.green}clipass import {filename}${c.end}`,
+// --------------------
     'gen': `
 Usage: Generate a password
     $ ${c.green}clipass gen {entry name} {complexity}${c.end}
