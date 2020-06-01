@@ -18,7 +18,9 @@ exec(`
 mkdir ~/.xyz.neruthes.clipass.v2;
 mkdir ~/.xyz.neruthes.clipass.v2/password;
 mkdir ~/.xyz.neruthes.clipass.v2/tbotp;
+mkdir ~/.xyz.neruthes.clipass.v2/globalAesKey.backups;
 echo "globalAesKey" > ~/.xyz.neruthes.clipass.v2/.gitignore;
+echo "globalAesKey.backups/*" > ~/.xyz.neruthes.clipass.v2/.gitignore;
 `);
 
 // --------------------------------------------
@@ -39,9 +41,8 @@ let globalAesKey = '';
     };
     globalAesKey = crypto.prng(32).toString('hex');
     fs.writeFileSync(homedir+`/.xyz.neruthes.clipass.v2/globalAesKey`, globalAesKey);
+    fs.writeFileSync(homedir+`/.xyz.neruthes.clipass.v2/globalAesKey.backups/keyBakcup_${(new Date()).toISOString().slice(0,19).replace(/\:/g, '.').replace('T', '_')}.key`, globalAesKey);
 })();
-
-console.log(CryptoJS.AES.encrypt('123', '123').toString(CryptoJS.enc.base64));
 
 // --------------------------------------------
 
