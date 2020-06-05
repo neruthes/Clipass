@@ -44,7 +44,7 @@ See [GitHub Wiki](https://github.com/neruthes/Clipass/wiki/Clipass-User-Manual).
 
 ## Data Management
 
-See directory: `~/.xyz.neruthes.clipass.v1`.
+See directory: `~/.config/.xyz.neruthes.clipass.v2`.
 
 You may sync data via Git.
 

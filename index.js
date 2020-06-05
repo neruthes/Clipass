@@ -15,12 +15,12 @@ const homedir = require('os').homedir();
 // --------------------------------------------
 
 exec(`
-mkdir ~/.xyz.neruthes.clipass.v2;
-mkdir ~/.xyz.neruthes.clipass.v2/password;
-mkdir ~/.xyz.neruthes.clipass.v2/tbotp;
-mkdir ~/.xyz.neruthes.clipass.v2/globalAesKey.backups;
-echo "globalAesKey" > ~/.xyz.neruthes.clipass.v2/.gitignore;
-echo "globalAesKey.backups/*" > ~/.xyz.neruthes.clipass.v2/.gitignore;
+mkdir ~/.config/.xyz.neruthes.clipass.v2;
+mkdir ~/.config/.xyz.neruthes.clipass.v2/password;
+mkdir ~/.config/.xyz.neruthes.clipass.v2/tbotp;
+mkdir ~/.config/.xyz.neruthes.clipass.v2/globalAesKey.backups;
+echo "globalAesKey" > ~/.config/.xyz.neruthes.clipass.v2/.gitignore;
+echo "globalAesKey.backups/*" > ~/.config/.xyz.neruthes.clipass.v2/.gitignore;
 `);
 
 // --------------------------------------------
@@ -32,16 +32,16 @@ var $args = process.argv.slice(2);
 
 let globalAesKey = '';
 (function () {
-    if (fs.existsSync(homedir+`/.xyz.neruthes.clipass.v2/globalAesKey`)) {
-        var tmpglobalAesKey = fs.readFileSync(homedir+`/.xyz.neruthes.clipass.v2/globalAesKey`).toString().trim();
+    if (fs.existsSync(homedir+`/.config/.xyz.neruthes.clipass.v2/globalAesKey`)) {
+        var tmpglobalAesKey = fs.readFileSync(homedir+`/.config/.xyz.neruthes.clipass.v2/globalAesKey`).toString().trim();
         if (tmpglobalAesKey.length > 5) {
             globalAesKey = tmpglobalAesKey;
             return 0;
         };
     };
     globalAesKey = crypto.prng(32).toString('hex');
-    fs.writeFileSync(homedir+`/.xyz.neruthes.clipass.v2/globalAesKey`, globalAesKey);
-    fs.writeFileSync(homedir+`/.xyz.neruthes.clipass.v2/globalAesKey.backups/keyBakcup_${(new Date()).toISOString().slice(0,19).replace(/\:/g, '.').replace('T', '_')}.key`, globalAesKey);
+    fs.writeFileSync(homedir+`/.config/.xyz.neruthes.clipass.v2/globalAesKey`, globalAesKey);
+    fs.writeFileSync(homedir+`/.config/.xyz.neruthes.clipass.v2/globalAesKey.backups/keyBakcup_${(new Date()).toISOString().slice(0,19).replace(/\:/g, '.').replace('T', '_')}.key`, globalAesKey);
 })();
 
 // --------------------------------------------
@@ -49,10 +49,10 @@ let globalAesKey = '';
 const DBMan = {
     read: function (category, name) {
         try {
-            fs.readFileSync(homedir+`/.xyz.neruthes.clipass.v2/${category}/${name}`).toString().trim();
+            fs.readFileSync(homedir+`/.config/.xyz.neruthes.clipass.v2/${category}/${name}`).toString().trim();
             return {
                 err: 0,
-                res: CryptoJS.AES.decrypt(fs.readFileSync(homedir+`/.xyz.neruthes.clipass.v2/${category}/${name}`).toString().trim(), globalAesKey).toString(CryptoJS.enc.Utf8)
+                res: CryptoJS.AES.decrypt(fs.readFileSync(homedir+`/.config/.xyz.neruthes.clipass.v2/${category}/${name}`).toString().trim(), globalAesKey).toString(CryptoJS.enc.Utf8)
             };
         } catch (e) {
             return {
@@ -63,10 +63,10 @@ const DBMan = {
     },
     readRaw: function (category, name) {
         try {
-            fs.readFileSync(homedir+`/.xyz.neruthes.clipass.v2/${category}/${name}`).toString().trim();
+            fs.readFileSync(homedir+`/.config/.xyz.neruthes.clipass.v2/${category}/${name}`).toString().trim();
             return {
                 err: 0,
-                res: fs.readFileSync(homedir+`/.xyz.neruthes.clipass.v2/${category}/${name}`).toString().trim()
+                res: fs.readFileSync(homedir+`/.config/.xyz.neruthes.clipass.v2/${category}/${name}`).toString().trim()
             };
         } catch (e) {
             return {
@@ -77,7 +77,7 @@ const DBMan = {
     },
     write: function (category, name, content) {
         try {
-            fs.writeFileSync(homedir+`/.xyz.neruthes.clipass.v2/${category}/${name}`, CryptoJS.AES.encrypt(content, globalAesKey));
+            fs.writeFileSync(homedir+`/.config/.xyz.neruthes.clipass.v2/${category}/${name}`, CryptoJS.AES.encrypt(content, globalAesKey));
             return {
                 err: 0,
                 res: null
@@ -92,7 +92,7 @@ const DBMan = {
     },
     writeRaw: function (category, name, content) {
         try {
-            fs.writeFileSync(homedir+`/.xyz.neruthes.clipass.v2/${category}/${name}`, content);
+            fs.writeFileSync(homedir+`/.config/.xyz.neruthes.clipass.v2/${category}/${name}`, content);
             return {
                 err: 0,
                 res: null
@@ -176,7 +176,7 @@ Other subcommands:
 Lookup subcommand-specific manual:
     ${c.green}clipass man {subcommand}${c.end}
 
-Your data is stored at: ${c.green}~/.xyz.neruthes.clipass.v2${c.end}
+Your data is stored at: ${c.green}~/.config/.xyz.neruthes.clipass.v2${c.end}
 `
         );
     },
@@ -279,7 +279,7 @@ Your data is stored at: ${c.green}~/.xyz.neruthes.clipass.v2${c.end}
             console.error(ct.red, '[ERROR 300] No match found in database. Use "clipass ls" to view the list.');
         } else { // Good
             console.log(ct.green, '[Notice] The password has been copied into clipboard.');
-            var tmpFileName = homedir + '/.xyz.neruthes.clipass.v2/tmp-b1b8652287f0.txt';
+            var tmpFileName = homedir + '/.config/.xyz.neruthes.clipass.v2/tmp-b1b8652287f0.txt';
             fs.writeFileSync(tmpFileName, query1.res);
             exec(`cat ${tmpFileName} | pbcopy; rm ${tmpFileName};`);
         };
@@ -296,7 +296,7 @@ Your data is stored at: ${c.green}~/.xyz.neruthes.clipass.v2${c.end}
     },
     'ls-password': function (args) {
         subcommandEntryDebugInfo(args);
-        exec('ls ~/.xyz.neruthes.clipass.v2/password', function (err, stdin, stderr) {
+        exec('ls ~/.config/.xyz.neruthes.clipass.v2/password', function (err, stdin, stderr) {
             console.log(ct.green, `[Notice] Total passwords: ${stdin.length === 0 ? 0 : stdin.trim().split('\n').length}\n----------------`);
             if (stdin.length > 0) {
                 console.log(stdin.trim().split('\n').map(x=>normalizeFilename(x)).join('\n'));
@@ -307,10 +307,10 @@ Your data is stored at: ${c.green}~/.xyz.neruthes.clipass.v2${c.end}
         var _def_args = [ '', 'Entry Name' ];
         subcommandEntryDebugInfo(args);
         try {
-            fs.unlink(homedir+`/.xyz.neruthes.clipass.v2/password/${args[1]}`, function () {});
+            fs.unlink(homedir+`/.config/.xyz.neruthes.clipass.v2/password/${args[1]}`, function () {});
             console.log(ct.green, `[Notice] Successfully deleted password of "${args[1]}"`);
         } catch (e) {
-            console.error(ct.red, `[ERROR 600] Cannot delete file "~/.xyz.neruthes.clipass.v2/password/${args[1]}"\n${(new Array(12)).fill(' ').join('')}You may try deleting it manually`);
+            console.error(ct.red, `[ERROR 600] Cannot delete file "~/.config/.xyz.neruthes.clipass.v2/password/${args[1]}"\n${(new Array(12)).fill(' ').join('')}You may try deleting it manually`);
         };
     },
     'clear': function (args) {
