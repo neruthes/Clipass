@@ -291,7 +291,7 @@ Your data is stored at: ${c.green}~/.config/.xyz.neruthes.clipass.v2${c.end}
         if (query1.err !== 0) {
             console.error(ct.red, '[ERROR 300] No match found in database. Use "clipass ls" to view the list.');
         } else { // Good
-            console.log(ct.green, query1.res);
+            console.log(query1.res);
         };
     },
     'ls-password': function (args) {
