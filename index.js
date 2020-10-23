@@ -77,7 +77,7 @@ const DBMan = {
     },
     write: function (category, name, content) {
         try {
-            fs.writeFileSync(homedir+`/.config/.xyz.neruthes.clipass.v2/${category}/${name}`, CryptoJS.AES.encrypt(content, globalAesKey));
+            fs.writeFileSync(homedir+`/.config/.xyz.neruthes.clipass.v2/${category}/${name}`, CryptoJS.AES.encrypt(content, globalAesKey).toString());
             return {
                 err: 0,
                 res: null
