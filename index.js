@@ -19,8 +19,8 @@ mkdir ~/.config/.xyz.neruthes.clipass.v2;
 mkdir ~/.config/.xyz.neruthes.clipass.v2/password;
 mkdir ~/.config/.xyz.neruthes.clipass.v2/tbotp;
 mkdir ~/.config/.xyz.neruthes.clipass.v2/globalAesKey.backups;
-echo "globalAesKey" > ~/.config/.xyz.neruthes.clipass.v2/.gitignore;
 echo "globalAesKey.backups/*" > ~/.config/.xyz.neruthes.clipass.v2/.gitignore;
+echo "globalAesKey" >> ~/.config/.xyz.neruthes.clipass.v2/.gitignore;
 `);
 
 // --------------------------------------------
