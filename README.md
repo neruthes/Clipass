@@ -1,5 +1,7 @@
 # Clipass
 
+Discontinued project. Try [pasm](https://github.com/neruthes/NDevShellRC/blob/master/bin/pasm) instead.
+
 CLI password management.
 
 ## Installation
